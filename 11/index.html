@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React.createElement()</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // DOM
+        const h1Elm = document.createElement('h1');
+        h1Elm.setAttribute('title', 'Hello'); // h1Elm.title = 'Hello';
+        h1Elm.classList.add('heading'); // h1Elm.className = 'heading';
+        h1Elm.textContent = 'Hello guys!';
+        document.body.appendChild(h1Elm);
+
+        const ulElm = document.createElement('ul');
+        const li1Elm = document.createElement('li');
+        const li2Elm = document.createElement('li');
+
+        li1Elm.innerText = 'Javascript';
+        li2Elm.innerText = 'ReactJS';
+
+        ulElm.appendChild(li1Elm);
+        ulElm.appendChild(li2Elm);
+        document.body.appendChild(ulElm);
+
+        const postItemElm = document.createElement('div');
+        postItemElm.className = 'post-item';
+        const h2Elm = document.createElement('h2');
+        h2Elm.title = 'Học ReactJS tại F8';
+        h2Elm.textContent = 'Học ReactJS';
+        const pElm = document.createElement('p');
+        pElm.textContent = 'Học ReactJS từ cơ bản đến nâng cao';
+
+        postItemElm.appendChild(h2Elm);
+        postItemElm.appendChild(pElm);
+        document.body.appendChild(postItemElm);
+
+
+        // REACT
+        // React.createElement(type, prop, children);
+        const h1ReactElm = React.createElement('h1', {
+            className: 'heading',
+            title: 'Hello',
+            // textContent: 'Hello guys!'
+        }, 'Hello guys!');
+
+        const ulReactElm = React.createElement('ul', {}, 
+            React.createElement('li', {}, 'Javascript'),
+            React.createElement('li', {}, 'ReactJS'),
+        );
+        
+        const postItemReactElm = React.createElement('div', {
+            className: 'post-item',
+        },
+        React.createElement('h2', { title: 'Học ReactJS tại F8'}, 'Học ReactJS tại F8'),
+        React.createElement('p', {}, 'Học ReactJS từ cơ bản đến nâng cao.'),
+        );
+        console.dir(postItemReactElm);
+        
+    </script>
+</body>
+</html>
