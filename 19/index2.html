@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #root { }
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .my-btn {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            margin-top: 50px;
+            padding: 12px 26px;
+            background-color: rgba(165, 42, 42, 0.7);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 1);
+        }
+        .my-btn:hover {
+            background-color: rgba(165, 42, 42, 1);
+            color: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(255, 255, 255, 1);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function Button({ title, href, onClick }) {
+            let Component = 'button';
+            const props = {};
+            if(href) {
+                Component = 'a';
+                props.href = href;
+            }
+            if(onClick) {
+                props.onClick = onClick;
+            }
+
+            return (
+                <Component className='my-btn' {...props}  >{title}</Component>
+            );
+        }
+
+        function App() {
+            return (
+                <div className='wrapper'>
+                    <Button
+                        title = 'Click me'
+                        // href = 'https://www.google.com'
+                        onClick = {() => console.log(Math.random())}
+                    />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+
+    </script>
+</body>
+</html>

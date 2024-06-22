@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React element types</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+        React element types: string, function/class
+         
+    -->
+    
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Header() {
+            return (
+                <div>Header</div>
+            )
+        }
+        function Content() {
+            return (
+                <div>Content</div>
+            )
+        }
+        function Footer() {
+            return (
+                <div>Footer</div> 
+            )
+        }
+
+        const container = (
+            <React.Fragment>
+                <Header />
+                <Content />
+                <Footer />
+                </React.Fragment>
+        )
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(container);
+
+    </script>
+
+</body>
+</html>

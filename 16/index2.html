@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // App.js
+        function App() {
+            return (
+                <div className='wrapper'>
+                    <PostItems
+                        imgSrc="https://files.fullstack.edu.vn/f8-prod/courses/7.png"
+                        title='1. Kiến thức nhập môn IT' price='Miễn phí'
+                        description='Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.'
+                    />
+                    <PostItems
+                        imgSrc="https://files.fullstack.edu.vn/f8-prod/courses/7.png"
+                        title='2. Kiến thức nhập môn IT' price='Miễn phí'
+                        description='Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.'
+                    />
+                    <PostItems
+                        imgSrc="https://files.fullstack.edu.vn/f8-prod/courses/7.png"
+                        title='3. Kiến thức nhập môn IT' price='Miễn phí'
+                        description='Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.'
+                    />
+                </div>
+            );
+        }
+
+        // PostItems.js
+        function PostItems(props) {
+            return (
+                <div className='post-item'>
+                    <img className='thumbnail' src={props.imgSrc} alt="" />
+                    <h3 className='title'>{props.title}</h3>
+                    <h4 className='price'>{props.price}</h4>
+                    <p className='description'>{props.description}</p>
+                    <div className='readmore-btn'>Xem khoá học</div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+
+    </script>
+</body>
+</html>
