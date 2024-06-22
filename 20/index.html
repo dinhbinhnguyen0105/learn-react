@@ -13,7 +13,44 @@
 
     <script type="text/babel">
 
-        
+        function Button({ title }) {
+            return (
+                <button>{title}</button>
+            );
+        }
+
+        function Input({ label, type, placeholder}) {
+            return (
+                <div>
+                    <label>{label}</label>
+                    <input type={type} placeholde={placeholder} /></div>
+            );
+        }
+
+        function Input({ label, ...inputProps}) {
+            return (
+                <div>
+                    <label>{label}</label>
+                    <input {...inputProps} /></div>
+            );
+        }
+
+        function App() {
+            return (
+                <div className='wrapper'>
+                    <Input
+                        label='Full name'
+                        type='text'
+                        placeholder='Type your full name'
+                        onFocus={() => console.log(Math.random())}
+                    />
+                    <Button title='Hello world'>Click me</Button>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />)
 
     </script>
 </body>
