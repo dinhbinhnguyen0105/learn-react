@@ -17,7 +17,8 @@
 
  /**
  * callback luôn được gọi sau khi Component mounted
- * cleanup function luôn được gọi trước khi Component được unmount
+ * cleanup function luôn được gọi trước khi Component được unmounted
+ * cleanup function luôn được gọi khi callback được gọi (trừ lần mounted)
  * 1. useEffect(callback)
  * 2. useEffect(callback, [])
  * 3. useEffect(callback, [deps])

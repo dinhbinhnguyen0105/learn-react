@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Content from './Content';
+import ContentFakeChat from './ContentFakeChat';
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <button onClick={() => setToggle(!toggle)}>Toggle</button>
-      {toggle ? <Content /> : <></>}
+      {toggle ? <ContentFakeChat /> : <></>}
     </div>
   );
 }
