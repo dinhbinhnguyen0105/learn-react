@@ -1,30 +1,20 @@
-import { useState, useRef, useEffect } from 'react';
+ import { useState, useRef } from 'react';
 
 function App() {
-  const [counter, setCounter] = useState(60);
+  const [countdown, setCountDown] = useState(60);
   const timerID = useRef();
-  const prevCounter = useRef();
 
-  useEffect(() => {
-    prevCounter.current = counter;
-  }, [counter]);
+  const onStart = () => timerID.current = setInterval(() => setCountDown(prev => prev - 1), 1000); 
+  const onStop = () => clearInterval(timerID.current);
 
-  const handleStart = () => {
-    timerID.current = setInterval(() => {
-      setCounter(prev => prev - 1);
-    }, 500);
-  }
-
-  const handleStop = () => {
-    clearInterval(timerID.current);
-  }
+  console.log(countdown);
 
   return (
-    <div className="App">
-      <h1>{counter}</h1>
-      <div className='button-container'>
-        <button onClick={handleStart}>Start</button>
-        <button onClick={handleStop}>Stop</button>
+    <div className='app'>
+      <div className='countdown-display'><h1>{countdown}</h1></div>
+      <div className='countdown-btn-box'>
+        <button onClick={onStart}>start</button>
+        <button onClick={onStop}>stop</button>
       </div>
     </div>
   );
